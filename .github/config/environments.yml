@@ -1,0 +1,43 @@
+environments:
+  qa:
+    baseUrl: "https://qa.example.com"
+    apiBaseUrl: "https://qa-api.example.com"
+    authMode: "ui"
+    testDataProfile: "qa"
+    tags:
+      - regression
+      - smoke
+
+  uat:
+    baseUrl: "https://uat.example.com"
+    apiBaseUrl: "https://uat-api.example.com"
+    authMode: "ui"
+    testDataProfile: "uat"
+    tags:
+      - regression
+
+  prod-like:
+    baseUrl: "https://prodlike.example.com"
+    apiBaseUrl: "https://prodlike-api.example.com"
+    authMode: "readonly"
+    testDataProfile: "prodlike"
+    tags:
+      - smoke
+
+defaults:
+  active: qa
+  browser: chromium
+  headless: true
+  retries: 1
+  timeoutMs: 30000
+  expectTimeoutMs: 10000
+
+security:
+  secretsFrom:
+    - CI/CD variables
+    - .env
+  neverCommit:
+    - usernames
+    - passwords
+    - apiKeys
+    - tokens

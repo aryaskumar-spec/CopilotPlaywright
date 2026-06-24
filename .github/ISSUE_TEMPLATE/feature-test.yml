@@ -1,0 +1,96 @@
+name: "Feature Test Request"
+description: "Request AI-generated Playwright test coverage for a feature, bug fix, or validation flow"
+title: "[Feature Test]: "
+labels:
+  - ai-test-request
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to request AI-generated Playwright automation.
+
+        Please provide enough detail for the agent to create:
+        - test scenarios
+        - automation code
+        - assertions
+        - required test data assumptions
+
+  - type: input
+    id: module_name
+    attributes:
+      label: Module / Feature Name
+      description: Example: Login, Appointment Booking, Patient Search
+      placeholder: Login
+    validations:
+      required: true
+
+  - type: textarea
+    id: business_context
+    attributes:
+      label: Business Context
+      description: What business capability is being validated?
+      placeholder: Users should be able to log in using valid credentials and see the dashboard.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Provide expected behaviors, validations, and outcomes.
+      placeholder: |
+        1. User enters valid username and password
+        2. User clicks login
+        3. Dashboard is displayed
+        4. Invalid password should show an error message
+    validations:
+      required: true
+
+  - type: textarea
+    id: preconditions
+    attributes:
+      label: Preconditions / Test Data
+      description: Any required user role, account, setup, seeded data, or environment assumptions.
+      placeholder: Test user account exists in QA environment.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: automation_type
+    attributes:
+      label: Automation Scope
+      options:
+        - UI
+        - API
+        - UI + API
+    validations:
+      required: true
+
+  - type: dropdown
+    id: suite
+    attributes:
+      label: Suggested Suite
+      options:
+        - smoke
+        - regression
+        - sanity
+    validations:
+      required: true
+
+  - type: textarea
+    id: out_of_scope
+    attributes:
+      label: Out of Scope
+      description: Optional items that should not be automated as part of this request.
+      placeholder: Password reset flow is out of scope.
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional Notes
+      description: Optional notes, screenshots, constraints, or references.
+      placeholder: This page uses lazy loading; please prefer stable selectors.
+    validations:
+      required: false

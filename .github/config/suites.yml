@@ -1,0 +1,43 @@
+suites:
+  smoke:
+    description: "Critical happy-path coverage for deployment validation"
+    tags:
+      - "@smoke"
+
+  regression:
+    description: "Broader business-flow coverage"
+    tags:
+      - "@regression"
+
+  sanity:
+    description: "Quick checks after hotfixes / deployments"
+    tags:
+      - "@sanity"
+
+  api:
+    description: "API-level validations"
+    tags:
+      - "@api"
+
+  ui:
+    description: "UI end-to-end validations"
+    tags:
+      - "@ui"
+
+executionProfiles:
+  pr:
+    suites:
+      - smoke
+    retries: 1
+
+  nightly:
+    suites:
+      - regression
+      - api
+    retries: 2
+
+  release:
+    suites:
+      - smoke
+      - sanity
+    retries: 1
